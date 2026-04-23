@@ -1,24 +1,38 @@
 /* UILA — main.js
-   Sticky header shading, mobile nav, reveal-on-scroll, card glow, video a11y. */
+   Observatory-editorial behaviors:
+   - Custom cursor beacon (pointer:fine only)
+   - Scroll progress hairline
+   - Live UTC-6 hero clock
+   - Sticky header, mobile nav, reveal-on-scroll
+   - Hero video a11y + offscreen pause
+*/
 
 (function () {
   'use strict';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
-  // Year in footer
+  // Footer year
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Sticky header style when scrolled
+  // Sticky header
   const header = document.getElementById('site-header');
+  const progressEl = document.getElementById('scrollProgress');
+
   const onScroll = () => {
-    if (!header) return;
-    if (window.scrollY > 8) header.classList.add('is-scrolled');
-    else header.classList.remove('is-scrolled');
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    if (header) header.classList.toggle('is-scrolled', y > 8);
+    if (progressEl) {
+      const max = (document.documentElement.scrollHeight - window.innerHeight) || 1;
+      const p = Math.max(0, Math.min(1, y / max));
+      progressEl.style.setProperty('--progress', String(p));
+    }
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
 
   // Mobile nav toggle
   const navToggle = document.getElementById('navToggle');
@@ -51,24 +65,63 @@
     reveals.forEach(el => el.classList.add('is-visible'));
   }
 
-  // Card hover glow follows cursor
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('pointermove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const mx = ((e.clientX - rect.left) / rect.width) * 100;
-      const my = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.setProperty('--mx', mx + '%');
-      card.style.setProperty('--my', my + '%');
-    });
-  });
+  // Custom cursor beacon (desktop / fine pointer only)
+  const cursor = document.getElementById('cursor');
+  if (cursor && isFinePointer && !prefersReducedMotion) {
+    document.documentElement.classList.add('has-custom-cursor');
+    let x = window.innerWidth / 2, y = window.innerHeight / 2;
+    let tx = x, ty = y;
+    let raf = null;
 
-  // Respect reduced-motion for hero video
+    const render = () => {
+      x += (tx - x) * 0.22;
+      y += (ty - y) * 0.22;
+      cursor.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+      if (Math.abs(tx - x) > 0.1 || Math.abs(ty - y) > 0.1) {
+        raf = requestAnimationFrame(render);
+      } else {
+        raf = null;
+      }
+    };
+
+    window.addEventListener('pointermove', (e) => {
+      tx = e.clientX; ty = e.clientY;
+      cursor.classList.add('is-visible');
+      if (raf === null) raf = requestAnimationFrame(render);
+    }, { passive: true });
+
+    window.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
+    window.addEventListener('blur', () => cursor.classList.remove('is-visible'));
+
+    const hoverables = 'a, button, .service-row, .industry, .principle, .training-card, .contact-mail, .lang-toggle, .nav-toggle';
+    document.querySelectorAll(hoverables).forEach(el => {
+      el.addEventListener('pointerenter', () => cursor.classList.add('is-hovering'));
+      el.addEventListener('pointerleave', () => cursor.classList.remove('is-hovering'));
+    });
+  }
+
+  // Live UTC-6 hero clock (San Salvador)
+  const clockEl = document.getElementById('heroClock');
+  if (clockEl) {
+    const tick = () => {
+      const now = new Date();
+      // UTC-6, no DST observed in El Salvador
+      const utcMs = now.getTime() + now.getTimezoneOffset() * 60000;
+      const sv = new Date(utcMs + -6 * 3600000);
+      const hh = String(sv.getHours()).padStart(2, '0');
+      const mm = String(sv.getMinutes()).padStart(2, '0');
+      const ss = String(sv.getSeconds()).padStart(2, '0');
+      clockEl.textContent = `${hh}:${mm}:${ss} UTC−6`;
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  // Hero video: reduced-motion + offscreen pause
   const heroVideo = document.getElementById('heroVideo');
   if (heroVideo && prefersReducedMotion) {
     try { heroVideo.pause(); heroVideo.removeAttribute('autoplay'); } catch (_) {}
   }
-
-  // Pause hero video when off-screen to save battery
   if (heroVideo && 'IntersectionObserver' in window) {
     const vio = new IntersectionObserver((entries) => {
       entries.forEach(e => {

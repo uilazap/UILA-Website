@@ -4,36 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UILA — IT Consulting, Security & Custom Software</title>
-  <meta name="description" content="UILA delivers IT consulting, cybersecurity, custom software, and technology training for government, utilities, astronomy, and digital asset organizations." />
-  <meta name="theme-color" content="#05070d" />
+  <meta name="description" content="UILA is a modern IT practice: consulting, cybersecurity, custom software, and training for organizations where uptime, trust, and security are non-negotiable." />
+  <meta name="theme-color" content="#060709" />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <meta property="og:title" content="UILA — IT Consulting, Security & Custom Software" />
-  <meta property="og:description" content="Trusted technology partner for consulting, cybersecurity, custom software, and training." />
+  <meta property="og:description" content="A modern technology practice: consulting, cybersecurity, custom software, and training." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.uila.io/" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Decorative background gradient / grid -->
-  <div class="bg-grid" aria-hidden="true"></div>
+  <!-- Atmospheric layers -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="bg-ambient" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-dot"></div></div>
 
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="UILA home">
         <img src="assets/img/uila-logo.svg" alt="UILA" class="brand-logo" />
+        <span class="brand-status" aria-hidden="true">
+          <span class="pulse-dot"></span>
+          <span>OPERATIONAL</span>
+        </span>
       </a>
 
       <nav class="primary-nav" aria-label="Primary">
-        <a href="#services" data-i18n="nav.services">Services</a>
-        <a href="#industries" data-i18n="nav.industries">Industries</a>
-        <a href="#software" data-i18n="nav.software">Software</a>
-        <a href="#training" data-i18n="nav.training">Training</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="#approach"><span class="nav-slash">/</span> <span data-i18n="nav.approach">approach</span></a>
+        <a href="#services"><span class="nav-slash">/</span> <span data-i18n="nav.services">services</span></a>
+        <a href="#industries"><span class="nav-slash">/</span> <span data-i18n="nav.industries">industries</span></a>
+        <a href="#software"><span class="nav-slash">/</span> <span data-i18n="nav.software">software</span></a>
+        <a href="#training"><span class="nav-slash">/</span> <span data-i18n="nav.training">training</span></a>
+        <a href="#contact"><span class="nav-slash">/</span> <span data-i18n="nav.contact">contact</span></a>
       </nav>
 
       <div class="header-actions">
@@ -59,175 +67,345 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="hero">
-      <video
-        class="hero-video"
-        id="heroVideo"
-        src="assets/video/uila-energy.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-hidden="true"
-      ></video>
-      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-media" aria-hidden="true">
+        <video
+          class="hero-video"
+          id="heroVideo"
+          src="assets/video/uila-energy.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        ></video>
+        <div class="hero-overlay"></div>
+        <div class="hero-vignette"></div>
+        <!-- Instrument-style corner brackets -->
+        <svg class="hero-bracket hero-bracket-tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M60 1H1v59" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+        <svg class="hero-bracket hero-bracket-tr" viewBox="0 0 60 60" aria-hidden="true"><path d="M0 1h59v59" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+        <svg class="hero-bracket hero-bracket-bl" viewBox="0 0 60 60" aria-hidden="true"><path d="M60 59H1V0" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+        <svg class="hero-bracket hero-bracket-br" viewBox="0 0 60 60" aria-hidden="true"><path d="M0 59h59V0" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+      </div>
+
+      <!-- Instrument readouts -->
+      <div class="hero-readout hero-readout-tl">
+        <span class="mono">N 13°42&apos;17&quot;</span>
+        <span class="mono">W 89°12&apos;07&quot;</span>
+      </div>
+      <div class="hero-readout hero-readout-tr">
+        <span class="mono" id="heroClock">—</span>
+        <span class="mono">SV · UTC-6</span>
+      </div>
+      <div class="hero-readout hero-readout-bl">
+        <span class="mono">ISO/IEC 27001 · SOC 2 · PCI DSS</span>
+      </div>
+      <div class="hero-readout hero-readout-br">
+        <span class="mono">EST. MMXVII · SAN SALVADOR</span>
+      </div>
 
       <div class="container hero-content">
-        <p class="eyebrow" data-i18n="hero.eyebrow">Technology partner · Since day one</p>
+        <p class="eyebrow"><span class="eyebrow-mark"></span> <span data-i18n="hero.eyebrow">A modern IT practice</span></p>
+
         <h1 class="hero-title">
-          <span data-i18n="hero.titleLine1">Energy that</span>
-          <span class="gradient-text" data-i18n="hero.titleLine2">powers modern IT.</span>
+          <span class="line line-1"><em data-i18n="hero.titleA">Energy</em></span>
+          <span class="line line-2"><span data-i18n="hero.titleB">that powers</span></span>
+          <span class="line line-3"><em data-i18n="hero.titleC">modern IT.</em></span>
         </h1>
-        <p class="hero-sub" data-i18n="hero.sub">
-          UILA delivers consulting, cybersecurity, custom software, and training for organizations where uptime, trust, and security are non-negotiable.
+
+        <p class="hero-sub mono" data-i18n="hero.sub">
+          Consulting · Cybersecurity · Custom Software · Training.
+          From ops centers to observatories, we protect and ship what can&apos;t afford to break.
         </p>
+
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="mailto:info@uila.io" data-i18n="hero.ctaContact">Get in Touch</a>
-          <a class="btn btn-ghost" href="#services" data-i18n="hero.ctaServices">Our Services</a>
+          <a class="btn btn-primary" href="mailto:info@uila.io">
+            <span data-i18n="hero.ctaContact">Start a conversation</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#approach" data-i18n="hero.ctaApproach">See our approach</a>
         </div>
       </div>
 
-      <a href="#services" class="hero-scroll" aria-label="Scroll to services">
-        <span></span>
+      <a href="#marquee" class="hero-scroll" aria-label="Scroll">
+        <span class="mono" data-i18n="hero.scroll">SCROLL</span>
+        <span class="hero-scroll-line"></span>
       </a>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section" id="services">
+    <!-- COMPLIANCE MARQUEE -->
+    <section class="marquee" id="marquee" aria-label="Compliance frameworks">
+      <div class="marquee-track">
+        <!-- set repeated twice for seamless loop -->
+        <div class="marquee-group">
+          <span>ISO/IEC 27001</span><span class="sep">✦</span>
+          <span>SOC 2 · Type II</span><span class="sep">✦</span>
+          <span>PCI DSS 4.0</span><span class="sep">✦</span>
+          <span>NIST CSF 2.0</span><span class="sep">✦</span>
+          <span>CIS Controls v8</span><span class="sep">✦</span>
+          <span>HIPAA</span><span class="sep">✦</span>
+          <span>CJIS</span><span class="sep">✦</span>
+          <span>FedRAMP</span><span class="sep">✦</span>
+          <span>GDPR</span><span class="sep">✦</span>
+          <span>NERC CIP</span><span class="sep">✦</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>ISO/IEC 27001</span><span class="sep">✦</span>
+          <span>SOC 2 · Type II</span><span class="sep">✦</span>
+          <span>PCI DSS 4.0</span><span class="sep">✦</span>
+          <span>NIST CSF 2.0</span><span class="sep">✦</span>
+          <span>CIS Controls v8</span><span class="sep">✦</span>
+          <span>HIPAA</span><span class="sep">✦</span>
+          <span>CJIS</span><span class="sep">✦</span>
+          <span>FedRAMP</span><span class="sep">✦</span>
+          <span>GDPR</span><span class="sep">✦</span>
+          <span>NERC CIP</span><span class="sep">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="section approach" id="approach">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="kicker" data-i18n="services.kicker">01 — Services</p>
-          <h2 data-i18n="services.title">IT Consulting &amp; Security</h2>
-          <p class="section-lede" data-i18n="services.lede">
-            Strategic guidance and hands-on execution. From one-off audits to full security programs, we help teams meet standards and stay ahead of threats.
+        <header class="section-head section-head-left reveal">
+          <p class="kicker mono">[ 00 · <span data-i18n="approach.kicker">Approach</span> ]</p>
+          <h2 class="section-title">
+            <span data-i18n="approach.titleA">A different</span>
+            <em data-i18n="approach.titleB">way to run IT.</em>
+          </h2>
+          <p class="section-lede" data-i18n="approach.lede">
+            We believe good security, good software, and good operations are the same discipline practiced from different angles.
           </p>
         </header>
 
-        <div class="card-grid">
-          <article class="card reveal">
-            <div class="card-index">01</div>
-            <h3 data-i18n="services.audits.title">Security Audits</h3>
-            <p data-i18n="services.audits.desc">Comprehensive reviews of your infrastructure, applications, identity, and data controls with prioritized remediation.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-index">02</div>
-            <h3 data-i18n="services.pentest.title">Penetration Testing</h3>
-            <p data-i18n="services.pentest.desc">External, internal, and application-layer testing performed by experienced offensive security practitioners.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-index">03</div>
-            <h3 data-i18n="services.cloud.title">Public Cloud Best Practices</h3>
-            <p data-i18n="services.cloud.desc">Architecture reviews and hardening for AWS, Azure, and GCP — landing zones, IAM, networking, and cost.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-index">04</div>
-            <h3 data-i18n="services.framework.title">Framework Assessments</h3>
-            <p data-i18n="services.framework.desc">Gap analyses and roadmaps aligned to NIST CSF, CIS Controls, and industry-specific frameworks.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-index">05</div>
-            <h3 data-i18n="services.policy.title">Policies &amp; Procedures</h3>
-            <p data-i18n="services.policy.desc">Right-sized policy development and procedure design that works for your organization — not against it.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-index">06</div>
-            <h3 data-i18n="services.compliance.title">SOC 2 · PCI · ISO 27001</h3>
-            <p data-i18n="services.compliance.desc">Readiness, alignment, and audit support for the compliance frameworks your customers expect.</p>
-          </article>
-        </div>
+        <ol class="principles">
+          <li class="principle reveal">
+            <span class="principle-num mono">i.</span>
+            <h3 class="principle-title"><em data-i18n="approach.p1.title">Rigor over theater.</em></h3>
+            <p data-i18n="approach.p1.desc">Checkbox compliance ages badly. We design controls that hold up under testing, in audit rooms, and in incidents at 3 a.m.</p>
+          </li>
+          <li class="principle reveal">
+            <span class="principle-num mono">ii.</span>
+            <h3 class="principle-title"><em data-i18n="approach.p2.title">Partners across the lifecycle.</em></h3>
+            <p data-i18n="approach.p2.desc">Strategy through implementation. We don&apos;t hand you a binder and disappear &mdash; we stay for the hard deployments.</p>
+          </li>
+          <li class="principle reveal">
+            <span class="principle-num mono">iii.</span>
+            <h3 class="principle-title"><em data-i18n="approach.p3.title">Signal over noise.</em></h3>
+            <p data-i18n="approach.p3.desc">Findings ranked by real risk, with concrete remediation paths and engineers who actually answer the phone.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <div class="container">
+        <header class="section-head section-head-left reveal">
+          <p class="kicker mono">[ 01 · <span data-i18n="services.kicker">Services</span> ]</p>
+          <h2 class="section-title">
+            <span data-i18n="services.titleA">IT Consulting</span>
+            <em data-i18n="services.titleB">&amp; Security.</em>
+          </h2>
+          <p class="section-lede" data-i18n="services.lede">
+            From one-off assessments to full-program engagements. Pick a point along the journey &mdash; we&apos;ll meet you there.
+          </p>
+        </header>
+
+        <ol class="service-list">
+          <li class="service-row reveal">
+            <span class="service-num mono">01</span>
+            <div class="service-body">
+              <h3 class="service-title" data-i18n="services.audits.title">Security Audits</h3>
+              <p class="service-desc" data-i18n="services.audits.desc">Comprehensive reviews of infrastructure, applications, identity, and data controls &mdash; findings prioritized by real-world exposure.</p>
+            </div>
+            <span class="service-tag mono" data-i18n="services.audits.tag">Assessment</span>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </li>
+          <li class="service-row reveal">
+            <span class="service-num mono">02</span>
+            <div class="service-body">
+              <h3 class="service-title" data-i18n="services.pentest.title">Penetration Testing</h3>
+              <p class="service-desc" data-i18n="services.pentest.desc">External, internal, and application-layer testing by experienced offensive-security practitioners. Clear writeups you can hand to engineering.</p>
+            </div>
+            <span class="service-tag mono" data-i18n="services.pentest.tag">Offensive</span>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </li>
+          <li class="service-row reveal">
+            <span class="service-num mono">03</span>
+            <div class="service-body">
+              <h3 class="service-title" data-i18n="services.cloud.title">Public Cloud Best Practices</h3>
+              <p class="service-desc" data-i18n="services.cloud.desc">Hardening and architecture reviews for AWS, Azure, and GCP &mdash; landing zones, IAM, networking, and cost discipline.</p>
+            </div>
+            <span class="service-tag mono" data-i18n="services.cloud.tag">Cloud</span>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </li>
+          <li class="service-row reveal">
+            <span class="service-num mono">04</span>
+            <div class="service-body">
+              <h3 class="service-title" data-i18n="services.framework.title">Framework Assessments</h3>
+              <p class="service-desc" data-i18n="services.framework.desc">Gap analyses and roadmaps aligned to NIST CSF, CIS Controls, and sector-specific frameworks &mdash; with phased execution plans.</p>
+            </div>
+            <span class="service-tag mono" data-i18n="services.framework.tag">Advisory</span>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </li>
+          <li class="service-row reveal">
+            <span class="service-num mono">05</span>
+            <div class="service-body">
+              <h3 class="service-title" data-i18n="services.policy.title">Policies &amp; Procedures</h3>
+              <p class="service-desc" data-i18n="services.policy.desc">Right-sized policy and procedure design that fits the way your organization actually operates &mdash; not shelf-ware.</p>
+            </div>
+            <span class="service-tag mono" data-i18n="services.policy.tag">Governance</span>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </li>
+          <li class="service-row reveal">
+            <span class="service-num mono">06</span>
+            <div class="service-body">
+              <h3 class="service-title" data-i18n="services.compliance.title">SOC 2 · PCI · ISO 27001</h3>
+              <p class="service-desc" data-i18n="services.compliance.desc">Readiness, alignment, and audit support for the frameworks your customers, auditors, and regulators expect.</p>
+            </div>
+            <span class="service-tag mono" data-i18n="services.compliance.tag">Compliance</span>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- INDUSTRIES -->
-    <section class="section section-alt" id="industries">
+    <section class="section industries" id="industries">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="kicker" data-i18n="industries.kicker">02 — Industries</p>
-          <h2 data-i18n="industries.title">Trusted across critical sectors</h2>
+        <header class="section-head section-head-left reveal">
+          <p class="kicker mono">[ 02 · <span data-i18n="industries.kicker">Industries</span> ]</p>
+          <h2 class="section-title">
+            <em data-i18n="industries.titleA">Trusted</em>
+            <span data-i18n="industries.titleB">across critical sectors.</span>
+          </h2>
           <p class="section-lede" data-i18n="industries.lede">
-            Our clients operate where downtime, breaches, and bad data aren't an option.
+            We work where downtime, breaches, and bad data aren&apos;t an option.
           </p>
         </header>
 
         <div class="industries-grid">
           <article class="industry reveal">
-            <svg viewBox="0 0 48 48" aria-hidden="true" class="industry-icon"><path d="M24 4 4 14v4h40v-4Zm-16 18v14h4V22Zm10 0v14h4V22Zm10 0v14h4V22Zm10 0v14h4V22ZM4 40v4h40v-4Z" fill="currentColor"/></svg>
-            <h3 data-i18n="industries.govt.title">State Government Agencies</h3>
+            <span class="industry-code mono">01 / GOV</span>
+            <svg class="industry-glyph" viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M10 70h60M14 70V38M24 70V38M36 70V38M44 70V38M56 70V38M66 70V38M8 38h64L40 14Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="industry-title"><em data-i18n="industries.govt.title">State Government Agencies</em></h3>
             <p data-i18n="industries.govt.desc">Modernizing public-sector IT with rigorous security and procurement-ready documentation.</p>
           </article>
+
           <article class="industry reveal">
-            <svg viewBox="0 0 48 48" aria-hidden="true" class="industry-icon"><circle cx="24" cy="24" r="4" fill="currentColor"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M10 38l4-4M34 14l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            <h3 data-i18n="industries.astro.title">Astronomy</h3>
+            <span class="industry-code mono">02 / ASTR</span>
+            <svg class="industry-glyph" viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="40" r="24" fill="none" stroke="currentColor" stroke-width="1.3"/>
+              <circle cx="40" cy="40" r="10" fill="none" stroke="currentColor" stroke-width="1.3"/>
+              <circle cx="40" cy="40" r="2" fill="currentColor"/>
+              <path d="M40 4v12M40 64v12M4 40h12M64 40h12M15 15l9 9M56 56l9 9M15 65l9-9M56 24l9-9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            <h3 class="industry-title"><em data-i18n="industries.astro.title">Astronomy</em></h3>
             <p data-i18n="industries.astro.desc">Data-intensive research infrastructure, observatory operations, and scientific computing.</p>
           </article>
+
           <article class="industry reveal">
-            <svg viewBox="0 0 48 48" aria-hidden="true" class="industry-icon"><path d="M24 4 8 24h10l-4 20 20-24H24l4-16Z" fill="currentColor"/></svg>
-            <h3 data-i18n="industries.utility.title">Public Utilities</h3>
+            <span class="industry-code mono">03 / UTIL</span>
+            <svg class="industry-glyph" viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M44 6 16 46h18l-6 28 30-40H40l4-28Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="industry-title"><em data-i18n="industries.utility.title">Public Utilities</em></h3>
             <p data-i18n="industries.utility.desc">OT/IT convergence, NERC-style controls, and resilient operations for essential services.</p>
           </article>
+
           <article class="industry reveal">
-            <svg viewBox="0 0 48 48" aria-hidden="true" class="industry-icon"><path d="M24 4 6 14v10c0 11 7.5 17 18 20 10.5-3 18-9 18-20V14Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M17 24l5 5 10-10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <h3 data-i18n="industries.digital.title">Digital Asset Service Providers</h3>
-            <p data-i18n="industries.digital.desc">Custody, exchange, and Web3 platforms — where security posture is your product.</p>
+            <span class="industry-code mono">04 / DASP</span>
+            <svg class="industry-glyph" viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M40 8 12 22v16c0 18 12 28 28 32 16-4 28-14 28-32V22Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+              <path d="M28 40l8 8 16-16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="industry-title"><em data-i18n="industries.digital.title">Digital Asset Service Providers</em></h3>
+            <p data-i18n="industries.digital.desc">Custody, exchange, and Web3 platforms &mdash; where security posture is the product.</p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- SOFTWARE -->
-    <section class="section" id="software">
+    <section class="section software" id="software">
       <div class="container split">
         <div class="split-text reveal">
-          <p class="kicker" data-i18n="software.kicker">03 — Software</p>
-          <h2 data-i18n="software.title">Custom software, built for what's next.</h2>
-          <p data-i18n="software.lede">
+          <p class="kicker mono">[ 03 · <span data-i18n="software.kicker">Software</span> ]</p>
+          <h2 class="section-title">
+            <em data-i18n="software.titleA">Custom software,</em>
+            <span data-i18n="software.titleB">built for what&apos;s next.</span>
+          </h2>
+          <p class="split-lede" data-i18n="software.lede">
             When off-the-shelf falls short, we design and ship bespoke systems that match how your team actually works.
           </p>
-          <ul class="check-list">
-            <li data-i18n="software.bullet1">Tailored platforms and internal tools</li>
-            <li data-i18n="software.bullet2">Secure APIs and integrations</li>
-            <li data-i18n="software.bullet3">Cloud-native, containerized architectures</li>
-            <li data-i18n="software.bullet4">DevSecOps pipelines and automation</li>
+          <ul class="spec-list">
+            <li><span class="mono spec-num">01</span><span data-i18n="software.bullet1">Tailored platforms &amp; internal tools</span></li>
+            <li><span class="mono spec-num">02</span><span data-i18n="software.bullet2">Secure APIs &amp; integrations</span></li>
+            <li><span class="mono spec-num">03</span><span data-i18n="software.bullet3">Cloud-native, containerized architectures</span></li>
+            <li><span class="mono spec-num">04</span><span data-i18n="software.bullet4">DevSecOps pipelines &amp; automation</span></li>
           </ul>
         </div>
         <div class="split-visual reveal" aria-hidden="true">
-          <div class="code-card">
-            <div class="code-dots"><span></span><span></span><span></span></div>
-            <pre><code><span class="tok-c">// uila · secure by default</span>
+          <div class="terminal">
+            <div class="terminal-head">
+              <span class="terminal-path mono">~ / uila / deploy.ts</span>
+              <span class="terminal-dots"><i></i><i></i><i></i></span>
+            </div>
+            <pre class="terminal-body"><code><span class="tok-c">// secure by default · auditable by design</span>
 <span class="tok-k">const</span> deploy = <span class="tok-k">async</span> (service) =&gt; {
-  <span class="tok-k">const</span> ok = <span class="tok-k">await</span> audit(service);
-  <span class="tok-k">if</span> (!ok) <span class="tok-k">throw</span> <span class="tok-s">"ship nothing unverified"</span>;
-  <span class="tok-k">return</span> release(service, {
-    region:   <span class="tok-s">"multi"</span>,
+  <span class="tok-k">const</span> audit  = <span class="tok-k">await</span> <span class="tok-f">verify</span>(service);
+  <span class="tok-k">const</span> signed = <span class="tok-k">await</span> <span class="tok-f">attest</span>(audit);
+
+  <span class="tok-k">if</span> (!signed.ok) <span class="tok-k">throw</span> <span class="tok-s">&quot;ship nothing unverified&quot;</span>;
+
+  <span class="tok-k">return</span> <span class="tok-f">release</span>(service, {
+    region:   <span class="tok-s">&quot;multi&quot;</span>,
     observe:  <span class="tok-b">true</span>,
     rollback: <span class="tok-b">true</span>,
   });
-};</code></pre>
+};<span class="terminal-cursor">▍</span></code></pre>
           </div>
         </div>
       </div>
     </section>
 
     <!-- TRAINING -->
-    <section class="section section-alt" id="training">
+    <section class="section training" id="training">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="kicker" data-i18n="training.kicker">04 — Education</p>
-          <h2 data-i18n="training.title">Training that pays off on Monday.</h2>
+        <header class="section-head section-head-left reveal">
+          <p class="kicker mono">[ 04 · <span data-i18n="training.kicker">Education</span> ]</p>
+          <h2 class="section-title">
+            <span data-i18n="training.titleA">Training that pays off</span>
+            <em data-i18n="training.titleB">on Monday.</em>
+          </h2>
           <p class="section-lede" data-i18n="training.lede">
-            Practical programs for individuals and teams — from career-defining certifications to safe adoption of AI.
+            Practical programs for individuals and teams &mdash; from career-defining certifications to safe adoption of AI.
           </p>
         </header>
+
         <div class="training-grid">
-          <article class="training reveal">
-            <div class="training-badge">IT</div>
-            <h3 data-i18n="training.certs.title">IT Certification Prep</h3>
-            <p data-i18n="training.certs.desc">Bootcamps and coaching for CompTIA, Cisco, AWS, Azure, and Google Cloud credentials — aligned to real-world work.</p>
+          <article class="training-card reveal">
+            <span class="training-num mono">A</span>
+            <h3 class="training-title"><em data-i18n="training.certs.title">IT Certification Prep</em></h3>
+            <p data-i18n="training.certs.desc">Bootcamps and coaching for CompTIA, Cisco, AWS, Azure, and Google Cloud credentials &mdash; aligned to real-world work, not just the exam.</p>
+            <ul class="training-list mono">
+              <li>CompTIA · A+ · Security+ · CySA+</li>
+              <li>Cisco · CCNA · CCNP</li>
+              <li>AWS · Azure · GCP</li>
+            </ul>
           </article>
-          <article class="training reveal">
-            <div class="training-badge">AI</div>
-            <h3 data-i18n="training.ai.title">Secure AI Usage &amp; Adoption</h3>
-            <p data-i18n="training.ai.desc">Hands-on workshops on responsible and secure AI — prompt hygiene, data governance, and enterprise guardrails.</p>
+
+          <article class="training-card reveal">
+            <span class="training-num mono">B</span>
+            <h3 class="training-title"><em data-i18n="training.ai.title">Secure AI Usage &amp; Adoption</em></h3>
+            <p data-i18n="training.ai.desc">Hands-on workshops on responsible and secure AI &mdash; prompt hygiene, data governance, tool selection, and enterprise guardrails.</p>
+            <ul class="training-list mono">
+              <li>Data handling &amp; PII protection</li>
+              <li>Prompt &amp; output review patterns</li>
+              <li>Governance for AI-assisted work</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -236,29 +414,59 @@
     <!-- CONTACT -->
     <section class="section contact" id="contact">
       <div class="container contact-inner reveal">
-        <p class="kicker" data-i18n="contact.kicker">05 — Contact</p>
-        <h2 data-i18n="contact.title">Let's build something resilient.</h2>
-        <p class="section-lede" data-i18n="contact.lede">
-          Whether you need a single assessment or a long-term partner, we'd like to hear from you.
+        <p class="kicker mono">[ 05 · <span data-i18n="contact.kicker">Contact</span> ]</p>
+        <h2 class="contact-title">
+          <span data-i18n="contact.titleA">Let&apos;s build</span>
+          <em data-i18n="contact.titleB">something resilient.</em>
+        </h2>
+        <p class="contact-lede" data-i18n="contact.lede">
+          Whether it&apos;s a single assessment or a long-term partnership, we&apos;d like to hear from you.
         </p>
-        <a class="btn btn-primary btn-large" href="mailto:info@uila.io">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1.4 2L12 12.4 18.6 7ZM5 8.6V18h14V8.6l-7 5.72Z" fill="currentColor"/></svg>
-          info@uila.io
+        <a class="contact-mail" href="mailto:info@uila.io">
+          <span class="contact-mail-text">info@uila.io</span>
+          <span class="contact-mail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
         </a>
+        <div class="contact-meta mono">
+          <span><span data-i18n="contact.replyLabel">Typical reply</span> · 1 business day</span>
+          <span class="contact-meta-sep">✦</span>
+          <span>San Salvador · UTC-6</span>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
+      <div class="footer-col footer-col-brand">
         <img src="assets/img/uila-logo.svg" alt="UILA" class="footer-logo" />
         <p class="footer-tag" data-i18n="footer.tag">Energy that powers modern IT.</p>
       </div>
-      <div class="footer-meta">
-        <p>&copy; <span id="year"></span> UILA. <span data-i18n="footer.rights">All rights reserved.</span></p>
-        <a href="mailto:info@uila.io">info@uila.io</a>
+      <div class="footer-col">
+        <p class="footer-label mono" data-i18n="footer.labelNav">Navigate</p>
+        <a href="#approach" data-i18n="nav.approach">approach</a>
+        <a href="#services" data-i18n="nav.services">services</a>
+        <a href="#industries" data-i18n="nav.industries">industries</a>
+        <a href="#software" data-i18n="nav.software">software</a>
+        <a href="#training" data-i18n="nav.training">training</a>
+        <a href="#contact" data-i18n="nav.contact">contact</a>
       </div>
+      <div class="footer-col">
+        <p class="footer-label mono" data-i18n="footer.labelContact">Contact</p>
+        <a href="mailto:info@uila.io">info@uila.io</a>
+        <p class="footer-meta mono">San Salvador · 13°42&apos;N / 89°12&apos;W</p>
+        <p class="footer-meta mono">UTC-6</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-label mono" data-i18n="footer.labelCred">Practice</p>
+        <p class="footer-meta mono">ISO/IEC 27001</p>
+        <p class="footer-meta mono">SOC 2 · PCI · NIST CSF</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span class="mono">© <span id="year"></span> UILA · <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <span class="mono" data-i18n="footer.craft">Made in El Salvador</span>
     </div>
   </footer>
 
