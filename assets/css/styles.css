@@ -814,7 +814,7 @@ p  { margin: 0; }
 }
 .footer-inner {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr;
   gap: clamp(24px, 4vw, 48px);
   padding-bottom: 40px;
   border-bottom: 1px solid var(--line);
