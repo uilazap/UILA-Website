@@ -107,7 +107,7 @@
       'contact.locMeta':    'Kona, HI · UTC\u221210',
 
       // Footer
-      'footer.tag':          'Energy that powers modern IT.',
+      'footer.tag':          'Backed by \u20BFitcoin',
       'footer.labelNav':     'Navigate',
       'footer.labelContact': 'Contact',
       'footer.labelCred':    'Practice',
@@ -219,7 +219,7 @@
       'contact.locMeta':    'San Salvador · UTC\u22126',
 
       // Footer
-      'footer.tag':          'La energía que impulsa la TI moderna.',
+      'footer.tag':          'Respaldado por \u20BFitcoin',
       'footer.labelNav':     'Navegar',
       'footer.labelContact': 'Contacto',
       'footer.labelCred':    'Práctica',
