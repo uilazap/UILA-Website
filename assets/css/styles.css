@@ -515,8 +515,9 @@ p  { margin: 0; }
 .principles { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
 .principle {
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 28px;
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 28px;
+  row-gap: 14px;
   align-items: baseline;
   padding: 36px 0;
   border-top: 1px solid var(--line);
@@ -524,18 +525,29 @@ p  { margin: 0; }
 }
 .principle:last-child { border-bottom: 1px solid var(--line); }
 .principle-num {
+  grid-column: 1;
+  grid-row: 1;
   font-size: 0.82rem;
   color: var(--paper-dim);
   letter-spacing: 0.2em;
   padding-top: 4px;
 }
 .principle-title {
+  grid-column: 2;
+  grid-row: 1;
   font-size: clamp(1.8rem, 1.2rem + 2.2vw, 3rem);
   line-height: 1.05;
-  margin: 0 0 14px;
+  margin: 0;
 }
 .principle-title em { color: var(--paper); }
-.principle p { color: var(--paper-dim); max-width: 62ch; font-size: 1.02rem; }
+.principle p {
+  grid-column: 2;
+  grid-row: 2;
+  color: var(--paper-dim);
+  max-width: 62ch;
+  font-size: 1.02rem;
+  margin: 0;
+}
 .principle::after {
   content: ""; position: absolute; left: 0; top: -1px; width: 0; height: 1px;
   background: var(--cyan); transition: width 600ms var(--ease);
