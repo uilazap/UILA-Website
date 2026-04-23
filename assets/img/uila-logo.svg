@@ -9,8 +9,8 @@
 	.st3{fill:#F1ECE2;}
 </style>
 <defs>
-	<mask id="hideIDot" maskUnits="userSpaceOnUse" x="180" y="220" width="1000" height="510">
-		<rect x="180" y="220" width="1000" height="510" fill="#ffffff"/>
+	<mask id="hideIDot" maskUnits="userSpaceOnUse" x="-5000" y="-5000" width="10000" height="10000">
+		<rect x="-5000" y="-5000" width="10000" height="10000" fill="#ffffff"/>
 		<rect x="489.67" y="281.67" width="161.67" height="129.17" fill="#000000"/>
 	</mask>
 </defs>
