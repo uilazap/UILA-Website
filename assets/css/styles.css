@@ -817,7 +817,7 @@ p  { margin: 0; }
   border-bottom: 1px solid var(--line);
 }
 .footer-col { display: flex; flex-direction: column; gap: 10px; }
-.footer-col-brand { gap: 18px; }
+.footer-col-brand { gap: 18px; align-items: center; text-align: center; }
 .footer-logo { height: 72px; width: auto; opacity: 0.95; }
 .footer-tag { color: var(--paper-dim); font-family: var(--font-display); font-style: italic; font-size: 1.1rem; max-width: 28ch; }
 .footer-label {
