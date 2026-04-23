@@ -242,10 +242,23 @@
   const STORAGE_KEY = 'uila.lang';
 
   function detectInitial() {
+    // 1. Explicit URL override wins: ?lang=es or #es
+    //    Lets us share direct links like https://www.uila.io/?lang=es
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const q = (params.get('lang') || '').toLowerCase();
+      if (q && translations[q]) return q;
+      const hash = (window.location.hash || '').replace(/^#/, '').toLowerCase();
+      if (hash && translations[hash]) return hash;
+    } catch (_) { /* URL API unavailable */ }
+
+    // 2. Previous choice on this device
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored && translations[stored]) return stored;
     } catch (_) { /* storage unavailable */ }
+
+    // 3. Browser language fallback
     const nav = (navigator.language || 'en').toLowerCase();
     return nav.startsWith('es') ? 'es' : 'en';
   }
