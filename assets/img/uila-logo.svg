@@ -8,8 +8,14 @@
 	.st2{font-size:488px;}
 	.st3{fill:#F1ECE2;}
 </style>
+<defs>
+	<mask id="hideIDot" maskUnits="userSpaceOnUse" x="180" y="220" width="1000" height="510">
+		<rect x="180" y="220" width="1000" height="510" fill="#ffffff"/>
+		<rect x="489.67" y="281.67" width="161.67" height="129.17" fill="#000000"/>
+	</mask>
+</defs>
 <rect x="203.83" y="319.17" class="st0" width="970.83" height="410"/>
-<text transform="matrix(1 0 0 1 203.8333 683.6992)" class="st1 st2 st3">uila</text>
+<text transform="matrix(1 0 0 1 203.8333 683.6992)" class="st1 st2 st3" mask="url(#hideIDot)">uila</text>
 <image style="overflow:visible;" width="256" height="256" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQEAAAEuCAYAAACOFqceAAAACXBIWXMAABPWAAAT1gGxNhB1AAAT
 5ElEQVR4Xu3de7BeVXnH8e+TG4RwD2AYDNMhXANVEuqYBAETbtOAgBCwtpZQK2qgY9uB0JZbAiJI
 rW0gY0GuMiMESiUhVmtiayFQREAthBaIVkIrYUq4BBMJkMvuHyvBHJJznvc9Z1/W2uv3mWG4zI8Z
