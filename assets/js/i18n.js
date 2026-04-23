@@ -240,10 +240,15 @@
   };
 
   const STORAGE_KEY = 'uila.lang';
+  const GEO_KEY     = 'uila.geoCountry';
 
-  function detectInitial() {
-    // 1. Explicit URL override wins: ?lang=es or #es
-    //    Lets us share direct links like https://www.uila.io/?lang=es
+  // ISO 3166-1 alpha-2 codes for Spanish-speaking countries / territories.
+  const SPANISH_COUNTRIES = new Set([
+    'AR','BO','CL','CO','CR','CU','DO','EC','SV','GQ',
+    'GT','HN','MX','NI','PA','PY','PE','PR','ES','UY','VE'
+  ]);
+
+  function urlOverride() {
     try {
       const params = new URLSearchParams(window.location.search);
       const q = (params.get('lang') || '').toLowerCase();
@@ -251,16 +256,72 @@
       const hash = (window.location.hash || '').replace(/^#/, '').toLowerCase();
       if (hash && translations[hash]) return hash;
     } catch (_) { /* URL API unavailable */ }
+    return null;
+  }
 
-    // 2. Previous choice on this device
+  function storedLang() {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored && translations[stored]) return stored;
     } catch (_) { /* storage unavailable */ }
+    return null;
+  }
 
-    // 3. Browser language fallback
+  function detectInitial() {
+    // 1. Explicit URL override wins: ?lang=es or #es
+    //    Lets us share direct links like https://www.uila.io/?lang=es
+    const u = urlOverride();
+    if (u) return u;
+
+    // 2. Previous choice on this device
+    const s = storedLang();
+    if (s) return s;
+
+    // 3. Cached geo result from earlier in this session
+    try {
+      const c = (sessionStorage.getItem(GEO_KEY) || '').toUpperCase();
+      if (c) return SPANISH_COUNTRIES.has(c) ? 'es' : 'en';
+    } catch (_) {}
+
+    // 4. Browser language fallback
     const nav = (navigator.language || 'en').toLowerCase();
     return nav.startsWith('es') ? 'es' : 'en';
+  }
+
+  // IP-based geo swap: runs async on first session visit.
+  // Skipped entirely if the user has a URL override or a saved preference.
+  async function geoSwapIfUnset() {
+    if (urlOverride() || storedLang()) return;
+    // Already resolved this session?
+    try { if (sessionStorage.getItem(GEO_KEY) != null) return; } catch (_) {}
+
+    let country = '';
+    try {
+      const res = await fetch('https://api.country.is/', { cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json();
+        country = (data && data.country || '').toUpperCase();
+      }
+    } catch (_) { /* network error; fall through */ }
+
+    // Cache result (empty string = lookup failed / unknown)
+    try { sessionStorage.setItem(GEO_KEY, country); } catch (_) {}
+    if (!country) return;
+
+    const geoLang = SPANISH_COUNTRIES.has(country) ? 'es' : 'en';
+    const current = document.documentElement.getAttribute('lang') || 'en';
+    if (geoLang !== current) {
+      // Apply but do NOT persist to localStorage — geo is a soft hint,
+      // not an explicit user choice. apply() writes localStorage, so we
+      // roll it back after.
+      let prev = null;
+      try { prev = localStorage.getItem(STORAGE_KEY); } catch (_) {}
+      apply(geoLang);
+      try {
+        if (prev == null) localStorage.removeItem(STORAGE_KEY);
+        else localStorage.setItem(STORAGE_KEY, prev);
+      } catch (_) {}
+    }
   }
 
   function apply(lang) {
@@ -308,5 +369,8 @@
     apply(detectInitial());
     const btn = document.getElementById('langToggle');
     if (btn) btn.addEventListener('click', () => window.UILA_I18N.toggle());
+    // Fire-and-forget geo hint; may swap the page to ES if the visitor
+    // is in a Spanish-speaking country and hasn't expressed a preference.
+    geoSwapIfUnset();
   });
 })();
