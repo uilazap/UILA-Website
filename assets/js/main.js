@@ -1,8 +1,6 @@
 /* UILA — main.js
-   Observatory-editorial behaviors:
-   - Custom cursor beacon (pointer:fine only)
    - Scroll progress hairline
-   - Live UTC-6 hero clock
+   - Live hero clock (timezone follows language)
    - Sticky header, mobile nav, reveal-on-scroll
    - Hero video a11y + offscreen pause
 */
@@ -11,7 +9,6 @@
   'use strict';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
   // Footer year
   const yearEl = document.getElementById('year');
@@ -63,41 +60,6 @@
     reveals.forEach(el => io.observe(el));
   } else {
     reveals.forEach(el => el.classList.add('is-visible'));
-  }
-
-  // Custom cursor beacon (desktop / fine pointer only)
-  const cursor = document.getElementById('cursor');
-  if (cursor && isFinePointer && !prefersReducedMotion) {
-    document.documentElement.classList.add('has-custom-cursor');
-    let x = window.innerWidth / 2, y = window.innerHeight / 2;
-    let tx = x, ty = y;
-    let raf = null;
-
-    const render = () => {
-      x += (tx - x) * 0.22;
-      y += (ty - y) * 0.22;
-      cursor.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-      if (Math.abs(tx - x) > 0.1 || Math.abs(ty - y) > 0.1) {
-        raf = requestAnimationFrame(render);
-      } else {
-        raf = null;
-      }
-    };
-
-    window.addEventListener('pointermove', (e) => {
-      tx = e.clientX; ty = e.clientY;
-      cursor.classList.add('is-visible');
-      if (raf === null) raf = requestAnimationFrame(render);
-    }, { passive: true });
-
-    window.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
-    window.addEventListener('blur', () => cursor.classList.remove('is-visible'));
-
-    const hoverables = 'a, button, .service-row, .industry, .principle, .training-card, .contact-mail, .lang-toggle, .nav-toggle';
-    document.querySelectorAll(hoverables).forEach(el => {
-      el.addEventListener('pointerenter', () => cursor.classList.add('is-hovering'));
-      el.addEventListener('pointerleave', () => cursor.classList.remove('is-hovering'));
-    });
   }
 
   // Live hero clock — timezone follows the selected language:
