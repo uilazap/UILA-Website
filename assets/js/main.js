@@ -100,21 +100,31 @@
     });
   }
 
-  // Live UTC-6 hero clock (San Salvador)
+  // Live hero clock — timezone follows the selected language:
+  //   en → Kona, Hawaiʻi (UTC−10, no DST)
+  //   es → San Salvador, El Salvador (UTC−6, no DST)
   const clockEl = document.getElementById('heroClock');
   if (clockEl) {
+    const TZ = {
+      en: { offset: -10, label: 'UTC\u221210' },
+      es: { offset: -6,  label: 'UTC\u22126'  },
+    };
+    const currentLang = () => document.documentElement.getAttribute('lang') || 'en';
+
     const tick = () => {
+      const lang = currentLang();
+      const z = TZ[lang] || TZ.en;
       const now = new Date();
-      // UTC-6, no DST observed in El Salvador
       const utcMs = now.getTime() + now.getTimezoneOffset() * 60000;
-      const sv = new Date(utcMs + -6 * 3600000);
-      const hh = String(sv.getHours()).padStart(2, '0');
-      const mm = String(sv.getMinutes()).padStart(2, '0');
-      const ss = String(sv.getSeconds()).padStart(2, '0');
-      clockEl.textContent = `${hh}:${mm}:${ss} UTC−6`;
+      const local = new Date(utcMs + z.offset * 3600000);
+      const hh = String(local.getHours()).padStart(2, '0');
+      const mm = String(local.getMinutes()).padStart(2, '0');
+      const ss = String(local.getSeconds()).padStart(2, '0');
+      clockEl.textContent = `${hh}:${mm}:${ss} ${z.label}`;
     };
     tick();
     setInterval(tick, 1000);
+    document.addEventListener('uila:langchange', tick);
   }
 
   // Hero video: reduced-motion + offscreen pause

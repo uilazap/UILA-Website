@@ -23,6 +23,10 @@
       'hero.ctaContact':  'Start a conversation',
       'hero.ctaApproach': 'See our approach',
       'hero.scroll':      'SCROLL',
+      'hero.coordLat':    'N 19°38\u203224\u2033',
+      'hero.coordLon':    'W 155°59\u203246\u2033',
+      'hero.tz':          'HI · UTC\u221210',
+      'hero.loc':         'EST. MMXVII · KONA, HAWAI\u02BBI',
 
       // Approach
       'approach.kicker':   'Approach',
@@ -128,6 +132,10 @@
       'hero.ctaContact':  'Iniciar una conversación',
       'hero.ctaApproach': 'Ver nuestro enfoque',
       'hero.scroll':      'DESPLAZAR',
+      'hero.coordLat':    'N 13°42\u203217\u2033',
+      'hero.coordLon':    'O 89°12\u203207\u2033',
+      'hero.tz':          'SV · UTC\u22126',
+      'hero.loc':         'EST. MMXVII · SAN SALVADOR',
 
       // Approach
       'approach.kicker':   'Enfoque',
@@ -259,6 +267,9 @@
     }
 
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (_) {}
+
+    // Notify listeners (e.g., hero clock) that language changed.
+    document.dispatchEvent(new CustomEvent('uila:langchange', { detail: { lang } }));
   }
 
   window.UILA_I18N = {
