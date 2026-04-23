@@ -108,7 +108,6 @@
 
       // Footer
       'footer.tag':          'Backed by \u20BFitcoin',
-      'footer.labelNav':     'Navigate',
       'footer.labelContact': 'Contact',
       'footer.labelCred':    'Practice',
       'footer.locCity':      'Kona · 19°38\u2032N / 155°59\u2032W',
@@ -220,7 +219,6 @@
 
       // Footer
       'footer.tag':          'Respaldado por \u20BFitcoin',
-      'footer.labelNav':     'Navegar',
       'footer.labelContact': 'Contacto',
       'footer.labelCred':    'Práctica',
       'footer.locCity':      'San Salvador · 13°42\u2032N / 89°12\u2032O',
