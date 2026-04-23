@@ -27,6 +27,7 @@
       'hero.coordLon':    'W 155°59\u203246\u2033',
       'hero.tz':          'HI · UTC\u221210',
       'hero.loc':         'EST. MMXVII · KONA, HAWAI\u02BBI',
+      'hero.backed':      'BACKED BY \u20BFITCOIN',
 
       // Approach
       'approach.kicker':   'Approach',
@@ -140,6 +141,7 @@
       'hero.coordLon':    'O 89°12\u203207\u2033',
       'hero.tz':          'SV · UTC\u22126',
       'hero.loc':         'EST. MMXVII · SAN SALVADOR',
+      'hero.backed':      'RESPALDADO POR \u20BFITCOIN',
 
       // Approach
       'approach.kicker':   'Enfoque',
