@@ -104,14 +104,17 @@
       'contact.titleB':     'something resilient.',
       'contact.lede':       'Whether you need a single assessment or a long-term partner, we\u2019d like to hear from you.',
       'contact.replyLabel': 'Typical reply',
+      'contact.locMeta':    'Kona, HI · UTC\u221210',
 
       // Footer
       'footer.tag':          'Energy that powers modern IT.',
       'footer.labelNav':     'Navigate',
       'footer.labelContact': 'Contact',
       'footer.labelCred':    'Practice',
+      'footer.locCity':      'Kona · 19°38\u2032N / 155°59\u2032W',
+      'footer.locTz':        'UTC\u221210',
       'footer.rights':       'All rights reserved.',
-      'footer.craft':        'Made in El Salvador',
+      'footer.craft':        'Operating from Kona, Hawai\u02BBi',
     },
 
     es: {
@@ -213,14 +216,17 @@
       'contact.titleB':     'algo resiliente.',
       'contact.lede':       'Ya sea para una sola evaluación o un socio a largo plazo, nos encantaría saber de usted.',
       'contact.replyLabel': 'Respuesta típica',
+      'contact.locMeta':    'San Salvador · UTC\u22126',
 
       // Footer
       'footer.tag':          'La energía que impulsa la TI moderna.',
       'footer.labelNav':     'Navegar',
       'footer.labelContact': 'Contacto',
       'footer.labelCred':    'Práctica',
+      'footer.locCity':      'San Salvador · 13°42\u2032N / 89°12\u2032O',
+      'footer.locTz':        'UTC\u22126',
       'footer.rights':       'Todos los derechos reservados.',
-      'footer.craft':        'Hecho en El Salvador',
+      'footer.craft':        'Desde San Salvador, El Salvador',
     },
   };
 
