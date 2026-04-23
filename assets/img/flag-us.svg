@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 20" role="img" aria-label="United States flag">
+  <defs>
+    <clipPath id="us-round"><rect width="38" height="20" rx="3" ry="3"/></clipPath>
+  </defs>
+  <g clip-path="url(#us-round)">
+    <rect width="38" height="20" fill="#ffffff"/>
+    <g fill="#b22234">
+      <rect y="0"  width="38" height="1.538"/>
+      <rect y="3.077" width="38" height="1.538"/>
+      <rect y="6.154" width="38" height="1.538"/>
+      <rect y="9.231" width="38" height="1.538"/>
+      <rect y="12.308" width="38" height="1.538"/>
+      <rect y="15.385" width="38" height="1.538"/>
+      <rect y="18.462" width="38" height="1.538"/>
+    </g>
+    <rect width="15.2" height="10.769" fill="#3c3b6e"/>
+    <g fill="#ffffff">
+      <circle cx="1.8" cy="1.6" r="0.55"/>
+      <circle cx="4.2" cy="1.6" r="0.55"/>
+      <circle cx="6.6" cy="1.6" r="0.55"/>
+      <circle cx="9.0" cy="1.6" r="0.55"/>
+      <circle cx="11.4" cy="1.6" r="0.55"/>
+      <circle cx="13.4" cy="1.6" r="0.55"/>
+      <circle cx="3.0" cy="3.3" r="0.55"/>
+      <circle cx="5.4" cy="3.3" r="0.55"/>
+      <circle cx="7.8" cy="3.3" r="0.55"/>
+      <circle cx="10.2" cy="3.3" r="0.55"/>
+      <circle cx="12.6" cy="3.3" r="0.55"/>
+      <circle cx="1.8" cy="5.0" r="0.55"/>
+      <circle cx="4.2" cy="5.0" r="0.55"/>
+      <circle cx="6.6" cy="5.0" r="0.55"/>
+      <circle cx="9.0" cy="5.0" r="0.55"/>
+      <circle cx="11.4" cy="5.0" r="0.55"/>
+      <circle cx="13.4" cy="5.0" r="0.55"/>
+      <circle cx="3.0" cy="6.7" r="0.55"/>
+      <circle cx="5.4" cy="6.7" r="0.55"/>
+      <circle cx="7.8" cy="6.7" r="0.55"/>
+      <circle cx="10.2" cy="6.7" r="0.55"/>
+      <circle cx="12.6" cy="6.7" r="0.55"/>
+      <circle cx="1.8" cy="8.4" r="0.55"/>
+      <circle cx="4.2" cy="8.4" r="0.55"/>
+      <circle cx="6.6" cy="8.4" r="0.55"/>
+      <circle cx="9.0" cy="8.4" r="0.55"/>
+      <circle cx="11.4" cy="8.4" r="0.55"/>
+      <circle cx="13.4" cy="8.4" r="0.55"/>
+    </g>
+  </g>
+</svg>

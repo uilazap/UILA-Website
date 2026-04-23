@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 20" role="img" aria-label="El Salvador flag">
+  <defs>
+    <clipPath id="sv-round"><rect width="38" height="20" rx="3" ry="3"/></clipPath>
+    <linearGradient id="sv-blue" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f47af"/>
+      <stop offset="100%" stop-color="#0c3d99"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#sv-round)">
+    <rect width="38" height="6.667" y="0" fill="url(#sv-blue)"/>
+    <rect width="38" height="6.666" y="6.667" fill="#ffffff"/>
+    <rect width="38" height="6.667" y="13.333" fill="url(#sv-blue)"/>
+    <g transform="translate(19 10)">
+      <polygon points="0,-3 2.6,1.5 -2.6,1.5" fill="none" stroke="#0f47af" stroke-width="0.45" stroke-linejoin="round"/>
+      <circle r="0.55" fill="#d4a017"/>
+      <text x="0" y="3.2" text-anchor="middle" font-family="Georgia, serif" font-size="1.3" font-weight="700" fill="#0f47af">REPÚBLICA</text>
+    </g>
+  </g>
+</svg>
